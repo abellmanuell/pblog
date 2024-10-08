@@ -10,13 +10,19 @@ import {
 import "./theme.css";
 import "@fontsource-variable/playfair-display";
 
-// Root Component
-import Root from "./route/root";
-import ErrorPage from "./errorPage";
+import Root from "./Root";
+import ErrorPage from "./ErrorPage";
+import Home from "./pages/Home";
+import SearchBlog from "./pages/SearchBlog";
+import Notification from "./components/Notification";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Root />} errorElement={<ErrorPage />}></Route>
+    <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
+      <Route index element={<Home />} />
+      <Route path="search" element={<SearchBlog />} />
+      <Route path="me/notifications" element={<Notification />} />
+    </Route>
   )
 );
 
