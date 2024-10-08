@@ -26,11 +26,7 @@ function HeaderProfileContainer() {
       />
       <BlogLink to="me/notifications" icon={BellIcon} />
 
-      <ProfileImage
-        avatar_url={profilePicture}
-        name="Abel Emmanuel"
-        className="h-10 min-w-10 cursor-pointer object-cover rounded-full"
-      />
+      <ProfileImage avatar_url={profilePicture} name="Abel Emmanuel" />
     </div>
   );
 }
