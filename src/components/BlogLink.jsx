@@ -12,8 +12,9 @@ export default function BlogLink({ to, content, icon, ...props }) {
         "text-neutral-900 hover:text-neutral-600",
         props.className
       )}
+      onClick={props.onClick}
     >
-      <BlogIcon icon={icon} className="size-6" />
+      <BlogIcon icon={icon} />
       {content && <span>{content}</span>}
     </Link>
   );
