@@ -21,21 +21,27 @@ function HeaderProfileContainer() {
   return (
     <div className="flex items-center space-x-5">
       <Link to="search">
-        <BlogIcon icon={MagnifyingGlassIcon} className="size-6" />
+        <BlogIcon icon={MagnifyingGlassIcon} className="sm:hidden" />
       </Link>
+
       <BlogLink
         to=""
         icon={PencilSquareIcon}
         content="Write"
-        className="hidden"
+        className="hidden md:flex"
       />
+
       <BlogLink
         to="me/notifications"
         icon={BellIcon}
         onClick={() => setIsNotificationOpen(false)}
       />
 
-      <ProfileImage avatar_url={profilePicture} name="Abel Emmanuel" />
+      <ProfileImage
+        avatar_url={profilePicture}
+        name="Abel Emmanuel"
+        className="h-10 min-w-10"
+      />
     </div>
   );
 }

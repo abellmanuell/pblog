@@ -16,7 +16,14 @@ export default function BlogHeader() {
         </Link>
       </div>
 
-      <BlogSearch placeholder="Search" className="hidden" />
+      <BlogSearch
+        placeholder="Search"
+        className={cn(
+          "hidden sm:flex",
+          "bg-neutral-100",
+          "px-4 py-2 rounded-full"
+        )}
+      />
       <HeaderProfileContainer />
     </BlogWrapper>
   );

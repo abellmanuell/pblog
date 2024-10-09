@@ -10,8 +10,8 @@ export default {
     },
     extend: {
       gridTemplateColumns: {
-        "blog-column": '3fr 2fr',
-      }
+        "blog-column": '3fr 1fr',
+      },
     },
   },
   plugins: [],

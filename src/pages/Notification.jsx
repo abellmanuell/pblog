@@ -1,12 +1,12 @@
 import React from "react";
-import BlogWrapper from "./BlogWrapper";
-import BlogHeading from "./BlogHeading";
+import BlogWrapper from "../components/BlogWrapper";
+import BlogHeading from "../components/BlogHeading";
 
 import * as Tabs from "@radix-ui/react-tabs";
 import { cn } from "../utils/cn";
-import Following from "./Following";
-import LinkTo from "./LinkTo";
-import BlogParagraph from "./BlogParagraph";
+import Following from "../components/Following";
+import LinkTo from "../components/LinkTo";
+import BlogParagraph from "../components/BlogParagraph";
 
 const following = [
   {
@@ -14,7 +14,7 @@ const following = [
     userName: "Hiren Donda",
     avatar_url:
       "https://miro.medium.com/v2/resize:fill:96:96/1*3eOYjwn3C_4RVrKzZKMqzQ.jpeg",
-    date: "Sep 20, 2023",
+    date: 21332423,
   },
 
   {
@@ -22,12 +22,13 @@ const following = [
     userName: "Sadiq Salau",
     avatar_url:
       "https://miro.medium.com/v2/resize:fill:176:176/1*wcC8zSjFpAzUi1GvKW03wg.png",
-    date: "Sep 3, 2023",
+    date: 43434543,
   },
 ];
+
 export default function Notification() {
   return (
-    <BlogWrapper>
+    <BlogWrapper className="md:px-20 lg:px-80">
       <BlogHeading>Notifications</BlogHeading>
 
       <Tabs.Root className="mt-5 flex flex-col w-full" defaultValue="all">

@@ -7,7 +7,11 @@ export default function SearchInput({ placeholder, ...props }) {
     <div className={cn(props.className)}>
       <BlogIcon
         icon={MagnifyingGlassIcon}
-        className="size-5 text-neutral-900 hover:text-neutral-600 cursor-pointer"
+        className={cn(
+          "size-5",
+          "text-neutral-900 hover:text-neutral-600",
+          "cursor-pointer"
+        )}
       />
       <input
         type="search"
