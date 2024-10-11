@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BlogIcon from "../components/BlogIcon";
 import { cn } from "../utils/cn";
+import { NavLink } from "react-router-dom";
 
 export default function BlogLink({ to, content, icon, ...props }) {
   return (
-    <Link
+    <NavLink
       to={to}
       className={cn(
         "inline-flex",
@@ -16,6 +17,6 @@ export default function BlogLink({ to, content, icon, ...props }) {
     >
       <BlogIcon icon={icon} />
       {content && <span>{content}</span>}
-    </Link>
+    </NavLink>
   );
 }

@@ -14,6 +14,7 @@ import profilePicture from "../../assets/brand.jpg";
 import BlogLink from "../../components/BlogLink";
 import BlogIcon from "../../components/BlogIcon";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function HeaderProfileContainer() {
   const [isNotificationOpen, setIsNotificationOpen] = useState(!false);
@@ -31,11 +32,21 @@ function HeaderProfileContainer() {
         className="hidden md:flex"
       />
 
-      <BlogLink
+      <NavLink to="me/notifications">
+        {({ isActive, isPending, isTransitioning }) =>
+          isActive ? (
+            <BlogIcon icon={BellIconSolid} />
+          ) : (
+            <BlogIcon icon={BellIcon} />
+          )
+        }
+      </NavLink>
+
+      {/* <BlogLink
         to="me/notifications"
         icon={BellIcon}
         onClick={() => setIsNotificationOpen(false)}
-      />
+      /> */}
 
       <ProfileImage
         avatar_url={profilePicture}

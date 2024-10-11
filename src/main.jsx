@@ -15,7 +15,7 @@ import ErrorPage from "./ErrorPage";
 import Home from "./pages/Home";
 import SearchBlog from "./pages/SearchBlog";
 import Notification from "./pages/Notification";
-import SingleBlog from ".../page/SingleBlog";
+import SingleBlog from "./pages/SingleBlog";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
