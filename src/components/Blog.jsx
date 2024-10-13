@@ -14,6 +14,9 @@ import {
 } from "@heroicons/react/24/solid";
 import { formatNumber } from "number-abbrevation";
 import { cn } from "../utils/cn";
+import { useLocation, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { replace } from "react-router-dom";
 
 export default function Blog({
   id,
@@ -26,7 +29,10 @@ export default function Blog({
   category,
   claps,
   comment,
+  username,
 }) {
+  const location = useLocation().pathname.split("/").join(" ").trim();
+
   return (
     <section
       className={cn(
@@ -50,7 +56,7 @@ export default function Blog({
         </span>
       </BlogParagraph>
 
-      <LinkTo to={`${category.toLowerCase().split(" ").join("-")}/${id}`}>
+      <LinkTo to={location == username ? `${id}` : `${username}/${id}`}>
         <div className="grid grid-cols-blog-column my-2 gap-x-4 items-center">
           <div>
             <BlogHeading className="pb-2">{headline}</BlogHeading>
