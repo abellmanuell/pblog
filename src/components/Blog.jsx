@@ -40,11 +40,11 @@ export default function Blog({
           <ProfileImage avatar_url={avatar_url} className="h-5 min-w-5" />
         </LinkTo>
         <span>
-          <LinkTo to="" className="hover:underline">
+          <LinkTo to="" className="hover:underline text-neutral-600">
             {blogger}
           </LinkTo>{" "}
           in{" "}
-          <LinkTo to="" className="hover:underline">
+          <LinkTo to="" className="hover:underline text-neutral-600">
             {category}
           </LinkTo>
         </span>

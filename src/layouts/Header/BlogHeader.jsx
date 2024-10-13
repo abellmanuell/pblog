@@ -8,7 +8,12 @@ import BlogWrapper from "../../components/BlogWrapper";
 export default function BlogHeader() {
   return (
     <BlogWrapper
-      className={cn("p-4", "flex items-center justify-between", "border-b")}
+      className={cn(
+        "p-4",
+        "flex items-center justify-between",
+        "border-b",
+        "md:p-4 lg:p-4"
+      )}
     >
       <div>
         <Link to="/">

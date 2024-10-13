@@ -16,6 +16,7 @@ import Home from "./pages/Home";
 import SearchBlog from "./pages/SearchBlog";
 import Notification from "./pages/Notification";
 import SingleBlog from "./pages/SingleBlog";
+import NewStory from "./pages/NewStory";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="search" element={<SearchBlog />} />
       <Route path="me/notifications" element={<Notification />} />
       <Route path=":category/:id" element={<SingleBlog />} />
+      <Route path="new-story" element={<NewStory />} />
     </Route>
   )
 );

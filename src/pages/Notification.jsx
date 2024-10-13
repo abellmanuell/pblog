@@ -28,7 +28,7 @@ const following = [
 
 export default function Notification() {
   return (
-    <BlogWrapper className="md:px-20 lg:px-80">
+    <BlogWrapper>
       <BlogHeading>Notifications</BlogHeading>
 
       <Tabs.Root className="mt-5 flex flex-col w-full" defaultValue="all">

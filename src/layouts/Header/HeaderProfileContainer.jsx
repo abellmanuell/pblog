@@ -7,18 +7,18 @@ import {
 
 // Icon to toggle notification
 import { BellIcon as BellIconSolid } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 
 import ProfileImage from "../../components/ProfileImage";
 import profilePicture from "../../assets/brand.jpg";
 
 import BlogLink from "../../components/BlogLink";
 import BlogIcon from "../../components/BlogIcon";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import LinkTo from "../../components/LinkTo";
 
 function HeaderProfileContainer() {
-  const [isNotificationOpen, setIsNotificationOpen] = useState(!false);
-
   return (
     <div className="flex items-center space-x-5">
       <Link to="search">
@@ -26,7 +26,7 @@ function HeaderProfileContainer() {
       </Link>
 
       <BlogLink
-        to=""
+        to="new-story"
         icon={PencilSquareIcon}
         content="Write"
         className="hidden md:flex"
@@ -42,17 +42,28 @@ function HeaderProfileContainer() {
         }
       </NavLink>
 
-      {/* <BlogLink
-        to="me/notifications"
-        icon={BellIcon}
-        onClick={() => setIsNotificationOpen(false)}
-      /> */}
+      <DropdownMenu.Root>
+        <DropdownMenu.Trigger>
+          <ProfileImage
+            avatar_url={profilePicture}
+            name="Abel Emmanuel"
+            className="h-10 min-w-10"
+          />
+        </DropdownMenu.Trigger>
 
-      <ProfileImage
-        avatar_url={profilePicture}
-        name="Abel Emmanuel"
-        className="h-10 min-w-10"
-      />
+        <DropdownMenu.Portal>
+          <DropdownMenu.Content
+            className="min-w-[220px] rounded-md bg-white p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]"
+            sideOffset={5}
+          >
+            <LinkTo to="/@mannydev02">
+              <DropdownMenu.Item className="flex h-[25px] select-none items-center rounded-[3px] pl-[25px] pr-[5px] text-[13px] leading-none text-neutral-600 outline-none hover:bg-neutral-900 hover:text-white">
+                Profile
+              </DropdownMenu.Item>
+            </LinkTo>
+          </DropdownMenu.Content>
+        </DropdownMenu.Portal>
+      </DropdownMenu.Root>
     </div>
   );
 }

@@ -6,7 +6,6 @@ import { SparklesIcon } from "@heroicons/react/24/solid";
 import BlogHeading from "../components/BlogHeading";
 import Profiler from "../components/Profiler";
 import { useState } from "react";
-import LinkTo from "../components/LinkTo";
 
 export default function SingleBlog() {
   const [user, setUser] = useState({
@@ -25,15 +24,13 @@ export default function SingleBlog() {
   });
 
   return (
-    <BlogWrapper className="md:px-20 lg:px-80">
+    <BlogWrapper>
       <BlogParagraph className="flex items-center space-x-2 text-neutral-500">
         <BlogIcon color="text-yellow-500" icon={SparklesIcon} size="size-5" />
         <span>Members-only story</span>
       </BlogParagraph>
 
-      <BlogHeading className="my-4 text-3xl">
-        This new JavaScript operator is an absolute game changer
-      </BlogHeading>
+      <BlogHeading className="my-4 text-3xl">{user.headline}</BlogHeading>
 
       <Profiler className="my-4" {...user}></Profiler>
 
