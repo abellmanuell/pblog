@@ -4,6 +4,7 @@ import { Form } from "react-router-dom";
 import Input from "../components/Form/Input";
 import TextArea from "../components/Form/TextArea";
 import { cn } from "../utils/cn";
+import Button from "../components/Form/Button";
 
 export default function NewStory() {
   return (
@@ -23,15 +24,7 @@ export default function NewStory() {
           placeholder="Talk your story..."
         />
 
-        <button
-          type="submit"
-          className={cn(
-            "bg-black text-white hover:bg-neutral-900",
-            "p-4 rounded-md font-bold"
-          )}
-        >
-          Publish
-        </button>
+        <Button>Publish</Button>
       </Form>
     </BlogWrapper>
   );

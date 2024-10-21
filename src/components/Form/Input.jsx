@@ -11,6 +11,8 @@ export default function Input({ type, name, label, placeholder, ...props }) {
         placeholder={placeholder}
         className={cn(props.className, "p-4 w-full bg-neutral-100 rounded-md")}
         id={name}
+        onChange={props.onChange}
+        value={props.value}
       />
     </div>
   );

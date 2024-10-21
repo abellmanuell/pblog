@@ -4,9 +4,38 @@ import BlogHeading from "../components/BlogHeading";
 import ProfileImage from "../components/ProfileImage";
 import BlogParagraph from "../components/BlogParagraph";
 import BlogList from "../components/BlogList";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { UserLoggedInContext } from "../context/UserLoggedInContext";
+import SignIn from "./SignIn";
+import { useFetch } from "../hook/useFetch";
+import { useParams } from "react-router-dom";
 
 export default function Me() {
+  const { isUserLoggedIn, setIsUserLoggedIn } = useContext(UserLoggedInContext);
+  const [user, setUser] = useState({ name: "", username: "" });
+  const { id } = useParams();
+
+  useEffect(() => {
+    (async function () {
+      const response = await useFetch("/user/" + id, {
+        method: "GET",
+        token: localStorage.getItem("token"),
+      });
+
+      const data = await response.json();
+      console.log(data);
+
+      if (response.ok) {
+        setUser({ ...user, ...data });
+      }
+    })();
+  }, []);
+
+  if (!isUserLoggedIn) {
+    return <SignIn></SignIn>;
+  }
+
   const [blogs, setBlogs] = useState([
     {
       id: 1,
@@ -33,9 +62,9 @@ export default function Me() {
           className="h-20 min-w-20"
         />
         <div>
-          <BlogHeading>Abel Emmanuel</BlogHeading>
+          <BlogHeading>{user.name}</BlogHeading>
           <BlogParagraph className="text-neutral-600">
-            Software Developer
+            {`@${user.username}`}
           </BlogParagraph>
         </div>
       </div>
