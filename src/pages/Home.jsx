@@ -8,7 +8,7 @@ export default function Home() {
     {
       id: 1,
       blogger: "Tari Ibaba",
-      username: "@tari",
+      username: "6716bbc359ff36eb9fef3ec0",
       avatar_url:
         "https://miro.medium.com/v2/resize:fill:96:96/1*hrkjW77qwMoev9kLXYZg5w.png",
       headline: "This new JavaScript operator is an absolute game changer",

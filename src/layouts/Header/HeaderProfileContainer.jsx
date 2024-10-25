@@ -4,8 +4,6 @@ import {
   PencilSquareIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
-
-// Icon to toggle notification
 import {
   BellIcon as BellIconSolid,
   UserCircleIcon,
@@ -20,10 +18,14 @@ import profilePicture from "../../assets/brand.jpg";
 import BlogLink from "../../components/BlogLink";
 import BlogIcon from "../../components/BlogIcon";
 import LinkTo from "../../components/LinkTo";
-import { UserLoggedInContext } from "../../context/UserLoggedInContext";
+import {
+  UserLoggedInContext,
+  UserContext,
+} from "../../context/UserLoggedInContext";
 
 function HeaderProfileContainer() {
   const { isUserLoggedIn, setIsUserLoggedIn } = useContext(UserLoggedInContext);
+  const { user, setUser } = useContext(UserContext);
 
   return (
     <div className="flex items-center space-x-5">
@@ -56,9 +58,9 @@ function HeaderProfileContainer() {
         <DropdownMenu.Root>
           <DropdownMenu.Trigger>
             <ProfileImage
-              avatar_url={profilePicture}
-              name="Abel Emmanuel"
-              className="h-10 min-w-10"
+              avatar_url={user.avatar_url}
+              name={user.name}
+              className="h-10 w-10"
             />
           </DropdownMenu.Trigger>
 

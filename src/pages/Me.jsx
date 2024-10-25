@@ -1,4 +1,3 @@
-import React from "react";
 import BlogWrapper from "../components/BlogWrapper";
 import BlogHeading from "../components/BlogHeading";
 import ProfileImage from "../components/ProfileImage";
@@ -10,11 +9,17 @@ import { UserLoggedInContext } from "../context/UserLoggedInContext";
 import SignIn from "./SignIn";
 import { useFetch } from "../hook/useFetch";
 import { useParams } from "react-router-dom";
+import Button from "../components/Form/Button";
+import LinkTo from "../components/LinkTo";
 
-export default function Me() {
+export default function Me({ children }) {
   const { isUserLoggedIn, setIsUserLoggedIn } = useContext(UserLoggedInContext);
   const [user, setUser] = useState({ name: "", username: "" });
   const { id } = useParams();
+
+  if (!isUserLoggedIn) {
+    return <SignIn></SignIn>;
+  }
 
   useEffect(() => {
     (async function () {
@@ -31,10 +36,6 @@ export default function Me() {
       }
     })();
   }, []);
-
-  if (!isUserLoggedIn) {
-    return <SignIn></SignIn>;
-  }
 
   const [blogs, setBlogs] = useState([
     {
@@ -56,17 +57,25 @@ export default function Me() {
 
   return (
     <BlogWrapper>
-      <div className="flex space-x-4 items-center sm:block sm:space-x-0 sm:space-y-4">
-        <ProfileImage
-          avatar_url="https://miro.medium.com/v2/resize:fill:48:48/1*g4x1BLhUYlSfX2OGm3kRqQ.jpeg"
-          className="h-20 min-w-20"
-        />
+      <div className="space-x-4 items-center sm:block sm:space-x-0 sm:space-y-4">
         <div>
-          <BlogHeading>{user.name}</BlogHeading>
-          <BlogParagraph className="text-neutral-600">
-            {`@${user.username}`}
-          </BlogParagraph>
+          <ProfileImage avatar_url={user.avatar_url} className="h-20 w-20" />
         </div>
+
+        <div className="flex flex-col">
+          <div>
+            <BlogHeading>{user.name}</BlogHeading>
+            <BlogParagraph className="text-neutral-600">
+              {`@${user.username}`}
+            </BlogParagraph>
+          </div>
+
+          <LinkTo to={`/${user._id}/edit`} className="underline mt-2">
+            Edit
+          </LinkTo>
+        </div>
+
+        <div>{children}</div>
       </div>
 
       <div className="mt-10">

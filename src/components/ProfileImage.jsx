@@ -6,6 +6,7 @@ export default function ProfileImage({ avatar_url, name, ...props }) {
     <img
       src={avatar_url}
       alt={name}
+      ref={props.piRef}
       className={cn(
         props.className,
         "cursor-pointer object-cover rounded-full"

@@ -21,6 +21,8 @@ import NewStory from "./pages/NewStory";
 import Me from "./pages/Me";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
+import EditUser from "./pages/EditUser";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -31,9 +33,10 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path="search" element={<SearchBlog />} />
         <Route path="me/notifications" element={<Notification />} />
+        <Route path=":id/edit" element={<EditUser></EditUser>} />
         <Route path=":username/:id" element={<SingleBlog />} />
         <Route path="new-story" element={<NewStory />} />
-        <Route path=":id" element={<Me />} />
+        <Route path=":id" element={<Me />}></Route>
       </Route>
     </>
   )

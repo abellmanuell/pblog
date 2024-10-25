@@ -56,7 +56,7 @@ export default function Blog({
         </span>
       </BlogParagraph>
 
-      <LinkTo to={location == username ? `${id}` : `${username}/${id}`}>
+      <LinkTo to={location ? `${id}` : `${username}/${id}`}>
         <div className="grid grid-cols-blog-column my-2 gap-x-4 items-center">
           <div>
             <BlogHeading className="pb-2">{headline}</BlogHeading>
