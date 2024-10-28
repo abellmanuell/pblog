@@ -54,16 +54,20 @@ export default function EdithUser() {
       });
 
       const data = await response.json();
-      setUser(() => {
-        return { ...user, avatar_url: data.avatar_url };
-      });
+
+      if (response.ok) {
+        toast.success("Successfully updated!");
+        setUser(() => {
+          return { ...user, avatar_url: data.avatar_url };
+        });
+      }
     }
   };
 
   return (
     <BlogWrapper>
-      <BlogHeading>Edit</BlogHeading>
       <Toaster />
+      <BlogHeading>Edit</BlogHeading>
 
       <ProfileImage
         piRef={imgRef}
