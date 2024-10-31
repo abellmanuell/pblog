@@ -5,27 +5,25 @@ import BlogParagraph from "./BlogParagraph";
 import { format, formatDistanceStrict } from "date-fns";
 import { cn } from "../utils/cn";
 
-export default function Profiler({
-  blogger,
-  avatar_url,
-  category,
-  createdAt,
-  ...props
-}) {
+export default function Profiler(props) {
+  const { avatar_url, name, category } = props.blogger[0];
+
   return (
     <div className={cn("grid grid-cols-[auto_1fr] gap-x-4", props.className)}>
-      <LinkTo>
-        <ProfileImage
-          avatar_url={avatar_url}
-          name={blogger}
-          className="h-10 min-w-10"
-        />
-      </LinkTo>
+      {
+        <LinkTo>
+          <ProfileImage
+            avatar_url={avatar_url}
+            name={name}
+            className="h-10 min-w-10"
+          />
+        </LinkTo>
+      }
 
       <div className="text-sm">
         <BlogParagraph>
           <LinkTo to="" className="hover:underline">
-            {blogger}
+            {name}
           </LinkTo>{" "}
           ·{" "}
           <LinkTo to="" className="text-green-600">
@@ -45,7 +43,7 @@ export default function Profiler({
             new Date(2015, 0, 1, 0, 0, 15),
             new Date(2015, 0, 1, 0, 0, 0)
           )}{" "}
-          · {format(createdAt, "PP")}
+          · {format(43555424, "PP")}
         </BlogParagraph>
       </div>
     </div>

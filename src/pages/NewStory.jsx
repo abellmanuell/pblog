@@ -47,7 +47,11 @@ export default function NewStory() {
 
             if (response.ok) {
               const data = await response.json();
-              console.log(data);
+              formData.set("category", ""),
+                formData.set("title", ""),
+                formData.set("blogImage", ""),
+                formData.set("story", ""),
+                toast.success(data.message);
             }
           }
         }}
@@ -56,6 +60,7 @@ export default function NewStory() {
           <option value="">Select a category</option>
           <option value="Coding Beauty">Coding Beauty</option>
         </select>
+
         <Input
           type="text"
           placeholder="Title"

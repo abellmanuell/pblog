@@ -19,17 +19,16 @@ import { useNavigate } from "react-router-dom";
 import { replace } from "react-router-dom";
 
 export default function Blog({
-  id,
-  blogger,
-  avatar_url,
-  headline,
-  postImage,
-  previewPost,
+  _id: id,
+  title,
+  image,
+  story,
   createdAt,
   category,
-  claps,
+  caps: claps,
   comment,
   username,
+  blogger,
 }) {
   const location = useLocation().pathname.split("/").join(" ").trim();
 
@@ -43,11 +42,14 @@ export default function Blog({
     >
       <BlogParagraph className="text-sm flex space-x-2">
         <LinkTo to="">
-          <ProfileImage avatar_url={avatar_url} className="h-5 min-w-5" />
+          <ProfileImage
+            avatar_url={blogger[0]["avatar_url"]}
+            className="h-5 min-w-5"
+          />
         </LinkTo>
         <span>
           <LinkTo to="" className="hover:underline text-neutral-600">
-            {blogger}
+            {blogger[0]["name"]}
           </LinkTo>{" "}
           in{" "}
           <LinkTo to="" className="hover:underline text-neutral-600">
@@ -56,17 +58,17 @@ export default function Blog({
         </span>
       </BlogParagraph>
 
-      <LinkTo to={location ? `${id}` : `${username}/${id}`}>
+      <LinkTo to={location ? `${id}` : `${blogger[0]._id}/${id}`}>
         <div className="grid grid-cols-blog-column my-2 gap-x-4 items-center">
           <div>
-            <BlogHeading className="pb-2">{headline}</BlogHeading>
-            <BlogParagraph className="text-neutral-600">
-              {previewPost}
+            <BlogHeading className="pb-2">{title}</BlogHeading>
+            <BlogParagraph className="text-neutral-600 w-96 overflow-hidden text-nowrap text-ellipsis">
+              {story}
             </BlogParagraph>
           </div>
 
           <div>
-            <img src={postImage} alt={headline} className="rounded-sm w-40" />
+            <img src={image} alt={title} className="rounded-sm w-40" />
           </div>
         </div>
 
