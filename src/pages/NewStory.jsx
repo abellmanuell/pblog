@@ -37,13 +37,16 @@ export default function NewStory() {
           ) {
             toast.error("Please fill the necessary space");
           } else {
-            const response = await fetch("http://localhost:9090/post-blog", {
-              method: "POST",
-              headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-              },
-              body: formData,
-            });
+            const response = await fetch(
+              "https://pblog-server.onrender.com//post-blog",
+              {
+                method: "POST",
+                headers: {
+                  Authorization: "Bearer " + localStorage.getItem("token"),
+                },
+                body: formData,
+              }
+            );
 
             if (response.ok) {
               const data = await response.json();

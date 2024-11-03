@@ -45,13 +45,16 @@ export default function EdithUser() {
 
       image.src = URL.createObjectURL(files[0]);
 
-      const response = await fetch("http://localhost:9090/upload", {
-        method: "POST",
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-        body: formData,
-      });
+      const response = await fetch(
+        "https://pblog-server.onrender.com//upload",
+        {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+          body: formData,
+        }
+      );
 
       const data = await response.json();
 
@@ -96,13 +99,16 @@ export default function EdithUser() {
           const form = formRef.current;
           const formData = new FormData(form);
 
-          const response = await fetch("http://localhost:9090/edit", {
-            method: "PUT",
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-            body: formData,
-          });
+          const response = await fetch(
+            "https://pblog-server.onrender.com//edit",
+            {
+              method: "PUT",
+              headers: {
+                Authorization: "Bearer " + localStorage.getItem("token"),
+              },
+              body: formData,
+            }
+          );
 
           const data = await response.json();
           console.log(data);

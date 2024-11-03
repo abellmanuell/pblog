@@ -8,7 +8,7 @@ export default function Home() {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch("http://localhost:9090/blogs");
+      const response = await fetch("https://pblog-server.onrender.com//blogs");
       if (response.ok) {
         const data = await response.json();
         setBlogs(data);

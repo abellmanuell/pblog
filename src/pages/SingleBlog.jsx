@@ -29,7 +29,9 @@ export default function SingleBlog() {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch("http://localhost:9090/blog/" + id);
+      const response = await fetch(
+        "https://pblog-server.onrender.com//blog/" + id
+      );
       if (response.ok) {
         const data = await response.json();
         setBlog(data);

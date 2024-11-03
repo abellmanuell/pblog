@@ -1,4 +1,4 @@
-const baseURL = "http://127.0.0.1:9090";
+const baseURL = "https://pblog-server.onrender.com/";
 
 export const useFetch = async function (path, requests) {
   try {
